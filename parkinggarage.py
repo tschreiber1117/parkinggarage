@@ -11,15 +11,20 @@ class parking_garage:
         self.parking_spaces.remove('spaces')
 
     def payForParking(self):
-        payment = input('Pay for your ticket, please:')
-        if payment !='':
-            print('Thank you for parking, you have 15 minutes of parking time.')
-            self.current.ticket['paid'] = True
+        while self.current_ticket['paid'] == False:
+            payment = input('Pay for your ticket, please: ')
+            if payment != '':
+                print('Thank you for parking, you have 15 minutes of parking time.')
+                self.current_ticket['paid'] = True
 
     def leaveGarage(self):
-        if self.payment !='':
+        if self.payment != '':
             print('Thank you, have a nice day')
         else:
-            self.payForParking(self)
+            self.payForParking()
         self.tickets.append('ticket')
         self.parking_spaces('spaces')
+
+myparkinggarage = parking_garage()
+myparkinggarage.payForParking()
+
